@@ -1,8 +1,8 @@
 {
-  "name": "cdk-eslint",
+  "name": "cdk-init-sample",
   "version": "0.1.0",
   "bin": {
-    "cdk-eslint": "bin/cdk-eslint.js"
+    "sample": "bin/sample.js"
   },
   "scripts": {
     "build": "tsc",

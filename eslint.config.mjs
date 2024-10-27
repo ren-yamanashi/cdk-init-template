@@ -7,9 +7,9 @@ export default tsEslint.config(
   ...tsEslint.configs.strict,
   ...tsEslint.configs.stylistic,
   {
-    files: ["lib/**/*.ts"],
+    files: ["lib/**/*.ts", "bin/*.ts", "test/**/*.ts"],
     languageOptions: {
-      ecmaVersion: 12,
+      ecmaVersion: "latest",
       sourceType: "module",
       parserOptions: {
         projectService: true,
@@ -40,30 +40,20 @@ export default tsEslint.config(
       // https://typescript-eslint.io/rules/no-empty-function/#how-to-use
       "no-empty-function": "off",
       "@typescript-eslint/no-empty-function": "warn",
-
+      // NOTE: `@typescript-eslint/no-restricted-imports`を有効にする場合、`no-restricted-imports`は無効にする必要がある
+      // https://typescript-eslint.io/rules/no-restricted-imports/#how-to-use
       "no-restricted-imports": "off",
       "@typescript-eslint/no-restricted-imports": [
         "error",
         {
-          paths: [
+          patterns: [
             {
-              name: "./constructs/test",
-              message: "dont use fs",
+              regex: "(\\.?\\.*/)?(constructs/)?/[^/]+/private/*",
+              message: "privateディレクトリ内のモジュールはimportできません。",
             },
           ],
         },
       ],
-      // "@typescript-eslint/no-restricted-imports": [
-      //   "error",
-      //   {
-      //     paths: [
-      //       {
-      //         name: "constructs",
-      //         message: "Please use import-bar instead.",
-      //       },
-      //     ],
-      //   },
-      // ],
       "import/order": [
         "warn",
         {
