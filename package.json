@@ -9,21 +9,19 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
-    "lint": "eslint --fix --config eslint.config.mjs"
+    "lint": "npx @biomejs/biome lint ./ --write",
+    "format": "npx @biomejs/biome format ./ --write",
+    "check": "npx @biomejs/biome check ./ --write"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@types/jest": "^29.5.12",
     "@types/node": "20.14.2",
-    "@eslint/js": "^9.10.0",
+    "aws-cdk": "2.146.0",
     "jest": "^29.7.0",
     "ts-jest": "^29.1.4",
-    "aws-cdk": "2.146.0",
     "ts-node": "^10.9.2",
-    "typescript": "~5.4.5",
-    "eslint": "^9.10.0",
-    "eslint-plugin-import": "^2.26.0",
-    "prettier": "^2.1.2",
-    "typescript-eslint": "^8.6.0"
+    "typescript": "~5.4.5"
   },
   "dependencies": {
     "aws-cdk-lib": "2.146.0",
